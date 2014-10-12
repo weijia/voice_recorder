@@ -14,7 +14,6 @@
 
 "A voice recorder for Youdao"
 
-* Free software: BSD license
 * Documentation: https://voice_recorder.readthedocs.org.
 
 Features
