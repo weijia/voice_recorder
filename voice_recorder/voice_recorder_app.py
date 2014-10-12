@@ -1,8 +1,13 @@
 from PyQt4 import QtCore
 from PyQt4.QtGui import QApplication, QMainWindow
 import sys
-from main_ui import Ui_MainWindow
-from voice_recorder import VoiceRecorder
+try:
+    #Work around for package name and file name is the same issue
+    from voice_recorder.main_ui import Ui_MainWindow
+    from voice_recorder.voice_recorder import VoiceRecorder
+except ImportError:
+    from main_ui import Ui_MainWindow
+    from voice_recorder import VoiceRecorder
 
 
 class VoiceRecorderApp(object):
