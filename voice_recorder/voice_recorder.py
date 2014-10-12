@@ -6,43 +6,47 @@ import pymedia.audio.sound as sound
 import time
 
 
+#Ref: http://pymedia.org/tut/src/voice_recorder.py.html
 class VoiceRecorder(threading.Thread):
     def __init__(self, full_path, group=None, target=None, name=None, args=(), kwargs=None, verbose=None):
         super(VoiceRecorder, self).__init__(group, target, name, args, kwargs, verbose)
         self.full_path = full_path
         self.encoder = None
-        self.is_recording = False
+        self.__is_recording = False
         self.is_stopped = False
         self.opened_file = None
         self.record_lock = None
         #self.record_semaphore = None
         self.__init_encoder()
 
+    def is_recording(self):
+        return self.__is_recording
+
     def start_record(self):
         if (self.record_lock is None) and (not self.is_stopped):
             self.record_lock = threading.Lock()
             #self.record_lock.acquire()
             #self.record_semaphore = threading.Semaphore(1)
-            self.is_recording = True
+            self.__is_recording = True
             self.opened_file = open(self.full_path, 'wb')
             self.start()
         else:
             raise "Already recording, or already stopped %s %s" % (str(self.record_lock), str(self.is_stopped))
 
     def pause(self):
-        if self.is_recording:
+        if self.__is_recording:
             #self.record_semaphore.aquire()
-            self.record_lock.aquire()
-            self.is_recording = False
+            self.record_lock.acquire()
+            self.__is_recording = False
         else:
             raise "Not started yet"
 
     def resume(self):
-        if (self.record_lock is None) and (not self.is_recording):
-            self.is_recording = True
+        if (self.record_lock is None) and (not self.__is_recording):
+            self.__is_recording = True
             self.record_lock.release()
         else:
-            raise "Not recording or not started %s %s" % (str(self.record_lock), str(self.is_recording))
+            raise "Not recording or not started %s %s" % (str(self.record_lock), str(self.__is_recording))
 
     def stop(self):
         if self.record_lock is None:
@@ -50,6 +54,9 @@ class VoiceRecorder(threading.Thread):
         else:
             self.is_stopped = True
             self.pause()
+
+    def is_started(self):
+        return not (self.record_lock is None)
 
     def __init_encoder(self):
         # Minimum set of parameters we need to create Encoder
@@ -62,7 +69,7 @@ class VoiceRecorder(threading.Thread):
     def __record(self):
         snd = sound.Input(44100, 2, sound.AFMT_S16_LE)
         snd.start()
-        while self.is_recording:
+        while self.__is_recording:
             s = snd.getData()
             if s and len(s):
                 for fr in self.encoder.encode(s):
@@ -78,6 +85,6 @@ class VoiceRecorder(threading.Thread):
         while not self.is_stopped:
             #self.record_lock.acquire()
             self.__record()
-            self.record_lock.aquire()
+            self.record_lock.acquire()
         self.opened_file.close()
         logging.debug("Recording thread quit")

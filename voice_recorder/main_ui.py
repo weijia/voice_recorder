@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'main.ui'
 #
-# Created: Sun Oct 12 09:44:35 2014
+# Created: Sun Oct 12 10:25:47 2014
 #      by: PyQt4 UI code generator 4.10.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -31,9 +31,9 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.gridLayout = QtGui.QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
-        self.pushButton_3 = QtGui.QPushButton(self.centralwidget)
-        self.pushButton_3.setObjectName(_fromUtf8("pushButton_3"))
-        self.gridLayout.addWidget(self.pushButton_3, 3, 3, 1, 1)
+        self.pause_button = QtGui.QPushButton(self.centralwidget)
+        self.pause_button.setObjectName(_fromUtf8("pause_button"))
+        self.gridLayout.addWidget(self.pause_button, 3, 3, 1, 1)
         self.username = QtGui.QLineEdit(self.centralwidget)
         self.username.setObjectName(_fromUtf8("username"))
         self.gridLayout.addWidget(self.username, 0, 2, 1, 1)
@@ -71,17 +71,20 @@ class Ui_MainWindow(object):
         self.lineEdit = QtGui.QLineEdit(self.centralwidget)
         self.lineEdit.setObjectName(_fromUtf8("lineEdit"))
         self.gridLayout.addWidget(self.lineEdit, 1, 1, 1, 4)
-        self.pushButton_2 = QtGui.QPushButton(self.centralwidget)
-        self.pushButton_2.setObjectName(_fromUtf8("pushButton_2"))
-        self.gridLayout.addWidget(self.pushButton_2, 3, 2, 1, 1)
-        self.pushButton_4 = QtGui.QPushButton(self.centralwidget)
-        self.pushButton_4.setObjectName(_fromUtf8("pushButton_4"))
-        self.gridLayout.addWidget(self.pushButton_4, 3, 4, 1, 1)
         self.textEdit = Qsci.QsciScintilla(self.centralwidget)
         self.textEdit.setToolTip(_fromUtf8(""))
         self.textEdit.setWhatsThis(_fromUtf8(""))
         self.textEdit.setObjectName(_fromUtf8("textEdit"))
         self.gridLayout.addWidget(self.textEdit, 2, 0, 1, 8)
+        self.start_button = QtGui.QPushButton(self.centralwidget)
+        self.start_button.setObjectName(_fromUtf8("start_button"))
+        self.gridLayout.addWidget(self.start_button, 3, 2, 1, 1)
+        self.resume_button = QtGui.QPushButton(self.centralwidget)
+        self.resume_button.setObjectName(_fromUtf8("resume_button"))
+        self.gridLayout.addWidget(self.resume_button, 3, 4, 1, 1)
+        self.stop_button = QtGui.QPushButton(self.centralwidget)
+        self.stop_button.setObjectName(_fromUtf8("stop_button"))
+        self.gridLayout.addWidget(self.stop_button, 3, 5, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 533, 23))
@@ -120,15 +123,16 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow", None))
-        self.pushButton_3.setText(_translate("MainWindow", "Pause", None))
+        self.pause_button.setText(_translate("MainWindow", "Pause", None))
         self.label.setText(_translate("MainWindow", "Username:", None))
         self.label_4.setText(_translate("MainWindow", "Note name:", None))
         self.recorded_minutes_and_seconds.setText(_translate("MainWindow", "00:00", None))
         self.label_2.setText(_translate("MainWindow", "Password:", None))
         self.pushButton.setText(_translate("MainWindow", "Browser", None))
         self.label_3.setText(_translate("MainWindow", "Path:", None))
-        self.pushButton_2.setText(_translate("MainWindow", "Start", None))
-        self.pushButton_4.setText(_translate("MainWindow", "Stop", None))
+        self.start_button.setText(_translate("MainWindow", "Start", None))
+        self.resume_button.setText(_translate("MainWindow", "Resume", None))
+        self.stop_button.setText(_translate("MainWindow", "Stop", None))
         self.menu.setTitle(_translate("MainWindow", "文件", None))
         self.menu_2.setTitle(_translate("MainWindow", "动作", None))
         self.start.setText(_translate("MainWindow", "开始", None))

@@ -16,7 +16,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="3" column="3">
-     <widget class="QPushButton" name="pushButton_3">
+     <widget class="QPushButton" name="pause_button">
       <property name="text">
        <string>Pause</string>
       </property>
@@ -96,20 +96,6 @@
     <item row="1" column="1" colspan="4">
      <widget class="QLineEdit" name="lineEdit"/>
     </item>
-    <item row="3" column="2">
-     <widget class="QPushButton" name="pushButton_2">
-      <property name="text">
-       <string>Start</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="4">
-     <widget class="QPushButton" name="pushButton_4">
-      <property name="text">
-       <string>Stop</string>
-      </property>
-     </widget>
-    </item>
     <item row="2" column="0" colspan="8">
      <widget class="QsciScintilla" name="textEdit">
       <property name="toolTip">
@@ -117,6 +103,27 @@
       </property>
       <property name="whatsThis">
        <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="2">
+     <widget class="QPushButton" name="start_button">
+      <property name="text">
+       <string>Start</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="4">
+     <widget class="QPushButton" name="resume_button">
+      <property name="text">
+       <string>Resume</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="5">
+     <widget class="QPushButton" name="stop_button">
+      <property name="text">
+       <string>Stop</string>
       </property>
      </widget>
     </item>
