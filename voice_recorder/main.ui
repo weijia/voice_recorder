@@ -42,7 +42,7 @@
     <item row="3" column="0" colspan="2">
      <widget class="QLabel" name="recorded_minutes_and_seconds">
       <property name="text">
-       <string>00:00</string>
+       <string>000:00</string>
       </property>
      </widget>
     </item>

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'main.ui'
 #
-# Created: Sun Oct 12 10:25:47 2014
+# Created: Sun Oct 12 10:29:33 2014
 #      by: PyQt4 UI code generator 4.10.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -126,7 +126,7 @@ class Ui_MainWindow(object):
         self.pause_button.setText(_translate("MainWindow", "Pause", None))
         self.label.setText(_translate("MainWindow", "Username:", None))
         self.label_4.setText(_translate("MainWindow", "Note name:", None))
-        self.recorded_minutes_and_seconds.setText(_translate("MainWindow", "00:00", None))
+        self.recorded_minutes_and_seconds.setText(_translate("MainWindow", "000:00", None))
         self.label_2.setText(_translate("MainWindow", "Password:", None))
         self.pushButton.setText(_translate("MainWindow", "Browser", None))
         self.label_3.setText(_translate("MainWindow", "Path:", None))

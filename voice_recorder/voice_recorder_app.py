@@ -46,7 +46,7 @@ class VoiceRecorderApp(object):
         """
         if self.recorder.is_recording():
             self.recorded_seconds += 1
-            val = "%d:%d" % (self.recorded_seconds / 100, self.recorded_seconds % 100)
+            val = "%03d:%02d" % (self.recorded_seconds / 100, self.recorded_seconds % 100)
             self.ui.recorded_minutes_and_seconds.setText(val)
 
     def on_stop(self):
@@ -57,10 +57,8 @@ class VoiceRecorderApp(object):
             self.recorder.stop()
         self.window.close()
 
-
     def on_pause(self):
         pass
-
 
     def on_resume(self):
         pass

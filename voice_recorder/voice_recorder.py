@@ -85,6 +85,8 @@ class VoiceRecorder(threading.Thread):
         while not self.is_stopped:
             #self.record_lock.acquire()
             self.__record()
+            if self.is_stopped:
+                break
             self.record_lock.acquire()
         self.opened_file.close()
         logging.debug("Recording thread quit")
